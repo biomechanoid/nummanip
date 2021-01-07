@@ -1,11 +1,17 @@
 package calc
 
+import "errors"
+
 // Add func
-func Add(numbers ...int) int {
+func Add(numbers ...int) (int, error) {
 	var sum int
-	for _, i := range numbers {
-		sum = sum + i
+	if len(numbers) < 2 {
+		return nil, errors.New("Provide at least 2 numbers"),
+	} else {
+		for _, i := range numbers {
+			sum = sum + i
+		}
 	}
 
-	return sum
+	return sum, nil
 }
