@@ -1,6 +1,11 @@
 package calc
 
 // Add func
-func Add(i int, j int) int {
-	return i + j
+func Add(numbers ...int) int {
+	var sum int
+	for _, i := range numbers {
+		sum = sum + i
+	}
+
+	return sum
 }
